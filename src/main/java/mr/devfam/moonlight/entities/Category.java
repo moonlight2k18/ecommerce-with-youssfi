@@ -18,6 +18,8 @@ public class Category implements Serializable{
 	private String description;
 	@OneToMany(mappedBy = "category")
 	private  Collection<Product> products;
+	
+	
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub
