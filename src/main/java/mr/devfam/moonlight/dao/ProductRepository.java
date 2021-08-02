@@ -15,6 +15,12 @@ import mr.devfam.moonlight.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	@RestResource(path = "/selectedProducts")
 	public List<Product> findBySelectedIsTrue();
+
+	@RestResource(path = "/dispoProducts")
+	public List<Product> findByAvailableIsTrue();
+	
+	@RestResource(path = "/promoProducts")
+	public List<Product> findByPromotionIsTrue();
 	
 	@RestResource(path = "/productsByKeyword")
 	public List<Product> findByNameContains(@Param("mc") String mc);

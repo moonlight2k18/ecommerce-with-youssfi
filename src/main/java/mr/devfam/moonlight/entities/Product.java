@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Product implements Serializable{
@@ -20,6 +21,9 @@ public class Product implements Serializable{
 	private boolean available;
 	private String photoName;
 	
+	@Transient
+	private int quantity = 1 ;
+	
 	@ManyToOne
 	private Category category;
 	
@@ -31,6 +35,15 @@ public class Product implements Serializable{
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public Product(Long id, String name, String description, double currentPrice, boolean promotion, boolean selected,
